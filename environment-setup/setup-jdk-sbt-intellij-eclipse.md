@@ -39,9 +39,7 @@
      **Instruction:**  
        *a.* Download the zip installer from the download link.  
        *b.* Unzip it in the appropriate installation folder and run 'eclipse.exe'.  
-       *c.* If it prompts for JDK installation path, please point it to the bin folder of the JDK installed above.  
-       *d.* Click ok for workspace and then close.
+       *c.* If it prompts for JDK installation path, please point it to the bin folder of the JDK installed.  
+       *d.* Click setup the workspace folder and then close.
        
-       
-       
-       
+===
