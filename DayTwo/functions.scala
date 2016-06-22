@@ -105,12 +105,8 @@ object Functions {
      +2)
      
      
-     
-     
-     
-     
-     
-     
-     
-     
+     def mapReduce(f: Int => Int, combine: (Int,Int) => Int, identity: Int)(a: Int, b: Int): Int =
+         if(a>b) identity
+         else combine(f(a),mapReduce(f,combine,identity)(a+1,b))
+         
 }
