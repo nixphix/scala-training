@@ -104,9 +104,27 @@ object Functions {
      val v4 = (1
      +2)
      
+     def sum(f: Int => Int): (Int, Int) => Int = {
+       def sumF(a: Int, b: Int): Int =
+              if (a > b) 0
+              else f(a) + sumF(a + 1, b)
+              sumF
+     }                                            //> sum: (f: Int => Int)(Int, Int) => Int
+          
+     def cube(x: Int) = x*x*x                     //> cube: (x: Int)Int
+     
+     def sumcube = sum(cube)                      //> sumcube: => (Int, Int) => Int
+     
+     sumcube(1,3)                                 //> res10: Int = 36
+     
+     sum(cube)(1,3)
+     
+     def sum(f: Int => Int)(a: Int, b: Int): Int =       
+       if (a > b) 0 else f(a) + sum(f)(a + 1, b)
+
      
      def mapReduce(f: Int => Int, combine: (Int,Int) => Int, identity: Int)(a: Int, b: Int): Int =
          if(a>b) identity
          else combine(f(a),mapReduce(f,combine,identity)(a+1,b))
-         
+
 }
