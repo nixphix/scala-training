@@ -122,6 +122,15 @@ object Functions {
      def sum(f: Int => Int)(a: Int, b: Int): Int =       
        if (a > b) 0 else f(a) + sum(f)(a + 1, b)
 
+
+     def add(x: Int, y: Int) = x+y                //> Add: (x: Int, y: Int)Int
+     def ++(x: Int) = add(x,1)                    //> ++ : (x: Int)Int
+     
+     ++(1) 
+     
+     def sc10(x: Int) = sum(cube)(x,10)           //> sc10: (x: Int)Int
+          
+     sc10(9)                                      //> res13: Int = 1729
      
      def mapReduce(f: Int => Int, combine: (Int,Int) => Int, identity: Int)(a: Int, b: Int): Int =
          if(a>b) identity
